@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-// const { Task, User } = require('../models');
+const { Task, User } = require('../models');
 
 // get all tasks for homepage
 router.get('/', (req, res) => {
@@ -11,6 +11,7 @@ router.get('/', (req, res) => {
       'task_url',
       'title',
       'created_at',
+      [sequelize.literal('(SELECT ALL(*) FROM tasks WHERE task.id = user.task_id)')]
     ],
   })
     .then(dbTaskData => {
@@ -38,6 +39,7 @@ router.get('/post/:id', (req, res) => {
       'task_url',
       'title',
       'created_at',
+      [sequelize.literal('(SELECT COUNT(*) FROM task WHERE task.id = user.task_id)')]
     ],
     include: [
       {

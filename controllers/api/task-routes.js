@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
-// const { Task, User } = require('../../models');
+const { Task, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // get all users
@@ -13,6 +13,18 @@ router.get('/', (req, res) => {
       'title',
       'created_at',
     ],
+    include: [
+      {
+        include: {
+          model: User,
+          attributes: ['username']
+        }
+      },
+      {
+        model: User,
+        attributes: ['username']
+      }
+    ]
   })
     .then(dbTaskData => res.json(dbTaskData))
     .catch(err => {
