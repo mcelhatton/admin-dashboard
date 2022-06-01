@@ -1,4 +1,5 @@
 const router = require('express').Router();
+
 const { User, Task } = require('../../models');
 
 // get all users

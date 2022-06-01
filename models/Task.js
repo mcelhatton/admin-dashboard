@@ -15,6 +15,7 @@ class Task extends Model {
           'id',
           'task_url',
           'title',
+          'description',
           'created_at',
         ],
       });
