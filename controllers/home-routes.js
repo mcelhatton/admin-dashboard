@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-// const { Task, User } = require('../models');
+const { Task, User } = require('../models');
 
 // get all tasks for homepage
 router.get('/', (req, res) => {
