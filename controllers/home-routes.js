@@ -8,14 +8,13 @@ router.get('/', (req, res) => {
   Task.findAll({
     attributes: [
       'id',
-      'task_url',
       'title',
+      'description',
       'created_at',
-      [sequelize.literal('(SELECT ALL(*) FROM tasks WHERE task.id = user.task_id)')]
     ],
   })
     .then(dbTaskData => {
-      const posts = dbTaskData.map(post => post.get({ plain: true }));
+      const tasks = dbTaskData.map(task => task.get({ plain: true }));
 
       res.render('homepage', {
         tasks,
@@ -36,10 +35,9 @@ router.get('/post/:id', (req, res) => {
     },
     attributes: [
       'id',
-      'task_url',
       'title',
+      'description',
       'created_at',
-      [sequelize.literal('(SELECT COUNT(*) FROM task WHERE task.id = user.task_id)')]
     ],
     include: [
       {
@@ -47,10 +45,6 @@ router.get('/post/:id', (req, res) => {
           model: User,
           attributes: ['username']
         }
-      },
-      {
-        model: User,
-        attributes: ['username']
       }
     ]
   })

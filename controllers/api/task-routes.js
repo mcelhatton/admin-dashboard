@@ -3,14 +3,14 @@ const sequelize = require('../../config/connection');
 const { Task, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// get all users
+// get all tasks for a given user
 router.get('/', (req, res) => {
   console.log('======================');
   Task.findAll({
     attributes: [
       'id',
-      'task_url',
       'title',
+      'description',
       'created_at',
     ],
     include: [
@@ -19,10 +19,6 @@ router.get('/', (req, res) => {
           model: User,
           attributes: ['username']
         }
-      },
-      {
-        model: User,
-        attributes: ['username']
       }
     ]
   })
@@ -40,8 +36,8 @@ router.get('/:id', (req, res) => {
     },
     attributes: [
       'id',
-      'task_url',
       'title',
+      'description',
       'created_at',
     ],
   })
@@ -62,7 +58,6 @@ router.post('/', withAuth, (req, res) => {
   Task.create({
     title: req.body.title,
     description: req.body.description,
-    // task_url: req.body.task_url,
     user_id: req.session.user_id
   })
     .then(dbTaskData => res.json(dbTaskData))

@@ -1,27 +1,8 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-// create our Post model
-class Task extends Model {
-  static upvote(body, models) {
-    return models.Vote.create({
-      user_id: body.user_id,
-      task_id: body.task_id
-    }).then(() => {
-      return Task.findOne({
-        where: {
-          id: body.task_id,
-        },
-        attributes: [
-          'id',
-          'task_url',
-          'title',
-          'description',
-          'created_at',
-        ],
-      });
-    });
-  }
-}
+
+// create our Task model
+class Task extends Model {}
 
 // create fields/columns for Task model
 Task.init(
@@ -36,7 +17,7 @@ Task.init(
       type: DataTypes.STRING,
       allowNull: false
     },
-    task_url: {
+    description: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {

@@ -11,7 +11,6 @@ class User extends Model {
   }
 }
 
-
 // create fields/columns for User model
 User.init(
   {
