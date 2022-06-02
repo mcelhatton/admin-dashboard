@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
-// const { Task, User } = require('../../models');
+const { Task, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // get all users
@@ -61,7 +61,8 @@ router.get('/:id', (req, res) => {
 router.post('/', withAuth, (req, res) => {
   Task.create({
     title: req.body.title,
-    task_url: req.body.task_url,
+    description: req.body.description,
+    // task_url: req.body.task_url,
     user_id: req.session.user_id
   })
     .then(dbTaskData => res.json(dbTaskData))
