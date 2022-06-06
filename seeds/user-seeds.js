@@ -1,59 +1,50 @@
-const sequelize = require('../config/connection');
-const { User, Task } = require('../models');
+const { User } = require('../models');
 
-const userdata = [
-  {
-    username: 'alesmonde0',
-    email: 'nwestnedge0@cbc.ca',
-    password: 'password123'
-  },
-  {
-    username: 'jwilloughway1',
-    email: 'rmebes1@sogou.com',
-    password: 'password123'
-  },
-  {
-    username: 'iboddam2',
-    email: 'cstoneman2@last.fm',
-    password: 'password123'
-  },
-  {
-    username: 'dstanmer3',
-    email: 'ihellier3@goo.ne.jp',
-    password: 'password123'
-  },
-  {
-    username: 'djiri4',
-    email: 'gmidgley4@weather.com',
-    password: 'password123'
-  },
-  {
-    username: 'msprague5',
-    email: 'larnout5@imdb.com',
-    password: 'password123'
-  },
-  {
-    username: 'mpergens6',
-    email: 'hnapleton6@feedburner.com',
-    password: 'password123'
-  },
-  {
-    username: 'tpenniell7',
-    email: 'kperigo7@china.com.cn',
-    password: 'password123'
-  },
-  {
-    username: 'msabbins8',
-    email: 'lmongain8@google.ru',
-    password: 'password123'
-  },
-  {
-    username: 'jmacarthur9',
-    email: 'bsteen9@epa.gov',
-    password: 'password123'
-  }
-];
+const userData = [
+    {
+        username: "martin_bour",
+        twitter: "martinb",
+        github: "martinb",
+        email: "martin_b@gmail.com",
+        password: "p@ssword1"
+    },
+    {
+        username: "matt_b",
+        twitter: "mathewb",
+        github: "mathewb",
+        email: "mathew_b@gmail.com",
+        password: "p@ssword2"
+    },
+    {
+        username: "shaun_c",
+        twitter: "shaun",
+        github: "shaun",
+        email: "shaun_c@gmail.com",
+        password: "p@ssword3"
+    },
+    {
+        username: "lee_n",
+        twitter: "leenorris",
+        github: "leenorris",
+        email: "lee_n@gmail.com",
+        password: "p@ssword4"
+    },
+    {
+        username: "priya_r",
+        twitter: "priyaravi23",
+        github: "priyaravi23",
+        email: "priya_r@gmail.com",
+        password: "p@ssword5"
+    },
+    {
+        username: "pooja",
+        twitter: "pooja_w",
+        github: "pooja",
+        email: "pooja@gmail.com",
+        password: "p@ssword6"
+    }
+]
 
-const seedUsers = () => User.bulkCreate(userdata, {individualHooks: true});
+const seedUsers = () => User.bulkCreate(userData);
 
 module.exports = seedUsers;
