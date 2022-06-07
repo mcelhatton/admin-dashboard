@@ -1,9 +1,9 @@
 <div class="card mb-6">
-  <header class="card-header card-header-title has-background-grey-lighter">
+  <header class="card-header card-header-title has-background-info-dark">
     
         <div class="column">
-            <p class=" has-text-primary-light"></p>
-      <a href="/post/{{id}}"  class="has-text-black is-capitalized is-pulled-left">{{title}} </a></p>
+            {{!-- <p class=" has-text-primary-light"></p> --}}
+            <a href="/post/{{id}}"  class="has-text-white is-capitalized is-pulled-left is-size-4">{{title}} </a>
       </div>
 
       <div class="column">
@@ -18,7 +18,7 @@
         </div>
             <div class="is-pulled-right">
                 <b>{{user.username}}</b> | 
-                <a href="https://github.com/{{user.github}}"><i class="fab fa-github"></i></a>
+                <a href="https://github.com/{{user.github}}"><i class="fab fa-github has-text-link"></i></a>
                  | {{format_date created_at}} | <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
             </div>
         

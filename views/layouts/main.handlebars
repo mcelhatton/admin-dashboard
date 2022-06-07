@@ -7,26 +7,36 @@
   <title>Admin Dashboard</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
   <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
 
   <div class="wrapper">
-    <header>
-        <h1 class="has-text-black px-3 py-3 has-text-weight-bold">Group 4 - Admin Dashboard</h1>
-        <nav class="navbar mt-2">
+    <nav class="navbar">
+      <div class="navbar-menu">
+        <div class="navbar-start">
+          <h1 class="has-text-dark navbar-item title">Admin Dashboard</h1>
+          {{!-- <h2 class="has-text-dark navbar-start subtitle ">Group 4</h2> --}}
+        </div>
+        <div class="navbar-end my-3 pr-3">
             {{#if loggedIn}}
-            <a href="/" class="navbar-item is-hoverable pt-1">homepage</a>
-            <a href="/dashboard" class="navbar-item is-hoverable pt-1">dashboard</a>
-            <a href="/dashboard/create/" class="navbar-item is-hoverable pt-1 mr-4">create task</a>
-            <button id="logout" class="button is-danger">logout</button>
+            <a href="/" class="navbar-item button is-info is-medium mx-1">homepage</a>
+            <a href="/dashboard" class="navbar-item button is-info is-light is-medium mx-1">dashboard</a>
+            <a href="/dashboard/create/" class="navbar-item button is-primary is-light is-medium mx-1">create task</a>
+            <button id="logout" class="navbar-item button is-danger is-medium">logout</button>
             {{else}}
-            <a href="/" class="navbar-item is-hoverable pt-1">homepage</a>
-            <a href="/login" class="button is-primary">login</a>
+            <a href="/" class="navbar-item button is-info is-medium mx-1">homepage</a>
+            <a href="/login" class="navbar-item button is-primary is-medium mx-1">login</a>
             {{/if}}
-        </nav>
-    </header>
+        </div>
+      </div>
+        
+        
+    </nav>
 
-    <main>
+    <main class="has-background-light">
             {{{ body }}}
     </main>
 
