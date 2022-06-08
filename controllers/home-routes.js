@@ -1,6 +1,10 @@
+const express = require('express');
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
+const app = express();
+const server = require('http').Server(app);
+const io = require('socket.io')(server);
 
 router.get('/', (req, res) => {
     console.log(req.session);
@@ -39,7 +43,14 @@ router.get('/', (req, res) => {
         res.status(500).json(err);
       });
   });
-
+  router.get('/chat', (req, res) => {
+    if (req.session.loggedIn) {
+      res.render('chat');
+      return;
+    }
+  
+   
+  });
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
       res.redirect('/');
