@@ -11,6 +11,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script> 
 </head>
 
   <div class="wrapper">
@@ -25,11 +27,16 @@
             <a href="/" class="navbar-item button is-info is-medium mx-1">homepage</a>
             <a href="/dashboard" class="navbar-item button is-info is-light is-medium mx-1">dashboard</a>
             <a href="/dashboard/create/" class="navbar-item button is-primary is-light is-medium mx-1">create task</a>
+<<<<<<< HEAD
             <a href="/dashboard/chat/" class="navbar-item button is-primary is-secondary is-medium mx-1">live chat</a>
+=======
+            <a href="/chat" class="navbar-item button is-primary is-medium mx-1">message</a>
+>>>>>>> 3a5329861e1403ff6e6b8a66b2500a16dcc0f4bc
             <button id="logout" class="navbar-item button is-danger is-medium">logout</button>
             {{else}}
             <a href="/" class="navbar-item button is-info is-medium mx-1">homepage</a>
             <a href="/login" class="navbar-item button is-primary is-medium mx-1">login</a>
+            
             {{/if}}
         </div>
       </div>
@@ -39,6 +46,7 @@
 
     <main class="has-background-light">
             {{{ body }}}
+
     </main>
 
     <footer class="footer rows pb-2">
